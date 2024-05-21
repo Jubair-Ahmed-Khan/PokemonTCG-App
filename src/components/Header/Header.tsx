@@ -12,6 +12,8 @@ import toast, { Toaster } from "react-hot-toast";
 // Header Component
 const Header = () => {
   const { login, username, updateLogin, updateUsername } = useLogin();
+
+  console.log("Login ", login);
   const { random } = useCartCount();
 
   const router = useRouter();
@@ -28,7 +30,7 @@ const Header = () => {
     updateLogin("Login");
     updateUsername("");
     router.push("/login");
-    toast.success("Logged out successfully !");
+    if (login === "Log Out") toast.success("Logged out successfully !");
   };
 
   useEffect(() => {
